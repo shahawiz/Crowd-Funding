@@ -35,7 +35,9 @@ while registration (Birthdate, facebook profile, country)
 - User can delete his account (Note that there must be a
 confirmation message before deleting)
 - Bonus: User must enter his password to delete his account
+
 **2 - ​ Projects​ :**
+
 - The user can create a project fund raise campaign which contains:
 - Title
 - Details
@@ -60,6 +62,7 @@ Project creator can cancel the project if the donations are less than
 tags
 
 **3 - ​ Homepage  contains the following:**
+
 - A slider to show the highest five rated running projects to encourage
 users to donate
 - List of the latest 5 projects
