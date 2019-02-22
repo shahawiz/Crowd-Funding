@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+ <div class="form form-profile" style="margin: 0 auto;">
+    
+
+
+        <h1>SORRY!</h1>
+        <h3>Please, Let's know what is the problem:</h3>
+   <div class="tab-content" style="width: 110%;">
+    <div>
+        <h3 class="rs alternate-tab accordion-label">Never Mind..</h3>
+        <div class="tab-pane accordion-content active">
+            <div class="form form-profile" >
+
+
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+
+                      <p><label for="subject">Subject:</label> <input type="text" class="txt fill-width" name="subject" maxlength="150" required="" id="id_subject">
+                  <span class="helptext">Required. 150 characters or fewer. Give us short hint about the problem..</span></p>
+              
+              <p><label for="id_details">Details:</label> <input type="text" name="details" class="txt fill-width" maxlength="50" required="" id="id_details"></p>
+                    <input type="submit" name="" class="txt fill-width" value="Report">
+                  </form>
+            </div>
+        </div><!--end: .tab-pane -->
+        <br>
+    </div>
+
+    <div>
+
+    </div>
+
+    </div>
+ </div>
+
+{% endblock %}

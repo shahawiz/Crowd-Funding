@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+<div id="home-slider">
+        <div class="md-slide-items md-slider" id="md-slider-1" data-thumb-width="105" data-thumb-height="70">
+			{% for key in top %}
+            <div class="md-slide-item slide-0" data-timeout="6000">
+				<div class="md-mainimg"><img src="{% static 'images/slider/main-bg.jpg' %}" alt=""></div>
+				<div class="md-objects">
+					<div class="md-object rs slide-title" data-x="20" data-y="38" data-width="480" data-height="30" data-start="700" data-stop="5500" data-easein="random" data-easeout="keep">
+						<p>{{key.title}}</p>
+					</div>
+					<div class="md-object rs slide-description" data-x="20" data-y="160" data-width="480" data-height="90" data-start="1400" data-stop="7500" data-easein="random" data-easeout="keep">
+						<p>{{key.details}}</p>
+					</div>
+					<div class="md-object rs" data-x="20" data-y="260" data-width="120" data-height="23" data-padding-top="9" data-padding-bottom="7" data-padding-left="10" data-padding-right="10" data-start="1800" data-stop="7500" data-easein="random" data-easeout="keep">
+						<a href="/project/view/{{key.id}}" class="btn btn-gray">Learn more</a>
+					</div>
+					<div class="md-object" data-x="495" data-y="0" data-width="612" data-height="365" data-start="1800" data-stop="7500" data-easein="fadeInRight" data-easeout="keep" style=""><img src="{{key.main_pic.url}}" alt="Search Money for Your Creative Ideas" width="612" height="365" /></div>
+				</div>
+			</div>
+    {%endfor%}
+
+		</div>
+    </div>
+
+
+
+
+    <div class="home-popular-project">
+        <div class="container_12">
+
+            <div class="grid_12 wrap-title">
+                <h2 class="common-title">Featured</h2>
+                <a class="be-fc-orange" href="category.html">View all</a>
+            </div>
+            <div class="clear"></div>
+<div class="sidebar grid_3">
+            <div class="left-list-category">
+                <h4 class="rs title-nav">Category</h4>
+                <ul class="rs nav nav-category">
+                    <li class="active">
+                        <a href="#">
+                            All
+                            <i class="icon iPlugGray"></i>
+                        </a>
+                    </li>
+                    {% for cat in cats%}
+                    <li >
+                        <a href="#">
+                            {{cat.name}}
+                            <span class="count-val"></span>
+                            <i class="icon iPlugGray"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+
+
+
+                </ul>
+            </div><!--end: .left-list-category -->
+        </div>
+            <div class="lst-popular-project clearfix">
+                {% for key in featured %}
+                <div class="grid_3">
+                    <div class="project-short sml-thumb">
+                        <div class="top-project-info">
+                            <div class="content-info-short clearfix">
+                                <a href="/project/view/{{key.id}}" class="thumb-img">
+                                    <img src="{{key.main_pic.url}}" alt="$TITLE">
+                                </a>
+                                <div class="wrap-short-detail">
+                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">{{key.title}}</a></h3>
+                                    <p class="rs tiny-desc">by <a href="/user/{{key.user.id}}" class="fw-b fc-gray be-fc-orange">{{key.user}}</a></p>
+                                    <p class="rs title-description">{{key.details}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-project-info clearfix">
+                            <div class="line-progress">
+                                <div class="bg-progress">
+                                            <span id="progress_bar"  style="width: calc({{key.current}}%/{{key.target}}*100)"></span>
+                                </div>
+                            </div>
+                            <div class="group-fee clearfix">
+                                <div class="fee-item">
+                                    <p class="rs lbl">Funded</p>
+                                            <span class="val"><script>document.write({{key.current}}/{{key.target}}*100);</script>%</span>
+                                </div>
+                                <div class="sep"></div>
+                                <div class="fee-item">
+                                    <p class="rs lbl">Pledged</p>
+                                            <span class="val">{{key.current}}$</span>
+                                </div>
+                                <div class="sep"></div>
+                                <div class="fee-item">
+                                    <p class="rs lbl">Time Left</p>
+                                            <span class="val" style="font-size: 11px; color: red;">{{key.end_date|timeuntil }} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end: .grid_3 > .project-short-->
+                {% endfor %}
+            </div>
+
+        </div>
+    </div><!--end: .home-popular-project -->
+
+
+
+
+        <div class="home-discover-friends">
+        <div class="container_12">
+            <div class="row-friends">
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-1.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-2.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-3.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-4.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-5.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-6.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-7.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-8.jpg' %}" alt="$USER_NAME"/></a>
+                <div class="clear"></div>
+            </div>
+            <div class="row-friends row-connect-fb">
+                <a class="thumb-avatar t-first" href="#"><img src="{% static 'images/ex/th-119x119-9.jpg' %}" alt="$USER_NAME"/></a>
+                <div class="connect-fb">
+                    <p class="rs description">Discover great projects with your friends!</p>
+                    <a href="#" class="btn btn-fb">Connect With Facebook</a>
+                </div>
+                <a class="thumb-avatar t-last" href="#"><img src="{% static 'images/ex/th-119x119-10.jpg' %}" alt="$USER_NAME"/></a>
+                <div class="clear"></div>
+            </div>
+            <div class="row-friends">
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-11.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-12.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-13.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-14.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-15.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-16.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-17.jpg' %}" alt="$USER_NAME"/></a>
+                <a class="thumb-avatar" href="#"><img src="{% static 'images/ex/th-119x119-1.jpg' %}" alt="$USER_NAME"/></a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div><!--end: .home-discover-friends -->
+
+    <div class="home-popular-project">
+        <div class="container_12">
+            <div class="grid_12 wrap-title">
+                <h2 class="common-title">Popular</h2>
+                <a class="be-fc-orange" href="category.html">View all</a>
+            </div>
+            <div class="clear"></div>
+            <div class="lst-popular-project clearfix">
+                {% for key in popular %}
+                <div class="grid_3">
+                    <div class="project-short sml-thumb">
+                        <div class="top-project-info">
+                            <div class="content-info-short clearfix">
+                                <a href="/project/view/{{key.id}}" class="thumb-img">
+                                    <img src="{{key.main_pic.url}}" alt="$TITLE">
+                                </a>
+                                <div class="wrap-short-detail">
+                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">{{key.title}}</a></h3>
+                                    <p class="rs tiny-desc">by <a href="/user/{{key.user.id}}" class="fw-b fc-gray be-fc-orange">{{key.user}}</a></p>
+                                    <p class="rs title-description">{{key.details}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-project-info clearfix">
+                            <div class="line-progress">
+                                <div class="bg-progress">
+                                            <span id="progress_bar"  style="width: calc({{key.current}}%/{{key.target}}*100)"></span>
+                                </div>
+                            </div>
+                            <div class="group-fee clearfix">
+                                <div class="fee-item">
+                                    <p class="rs lbl">Funded</p>
+                                            <span class="val"><script>document.write({{key.current}}/{{key.target}}*100);</script>%</span>
+                                </div>
+                                <div class="sep"></div>
+                                <div class="fee-item">
+                                    <p class="rs lbl">Pledged</p>
+                                            <span class="val">{{key.current}}$</span>
+                                </div>
+                                <div class="sep"></div>
+
+                                <div class="fee-item">
+                                    <p class="rs lbl">Time Left</p>
+                                            <span class="val" style="font-size: 11px; color: red;">{{key.end_date|timeuntil }} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end: .grid_3 > .project-short-->
+                {% endfor %}
+            </div>
+        </div>
+    </div><!--end: .home-popular-project -->
+
+
+{% endblock %}

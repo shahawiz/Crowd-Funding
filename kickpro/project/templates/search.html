@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+ <div class="layout-2cols">
+        <div class="content grid_9">
+            <div class="search-result-page">
+                <div class="top-lbl-val">
+                    <h3 class="common-title">Discover / <span class="fc-orange">Search for {{word}}</span></h3>
+                    <div class="count-result">
+                        Projects found for “<span class="fw-b fc-black">{{word}}</span>”
+                    </div>
+                </div>
+                <div id="list-search-ajax" class="list-project-result">
+            {% for project in projects %}
+                    <div class="project-short larger">
+                        <div class="top-project-info">
+                            <div class="content-info-short clearfix">
+                                <a href="/project/view/{{project.id}}" class="thumb-img">
+                                    <img src="{{project.main_pic.url}}" alt="">
+                                </a>
+                                <div class="wrap-short-detail">
+                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="#">{{project.title}}</a></h3>
+                                    <p class="rs tiny-desc">by <a href="#" class="fw-b fc-gray be-fc-orange">{{project.user}}</a>
+                                    <p class="rs title-description">{{project.details}}</p>
+
+                                </div>
+
+                            </div>
+                        </div><!--end: .top-project-info -->
+                        <div class="bottom-project-info clearfix">
+                            <div class="project-progress sys_circle_progress" data-percent="{% widthratio project.current project.target 100 %}">
+                                <div class="sys_holder_sector"></div>
+                            </div>
+                            <div class="group-fee clearfix">
+
+                                <div class="fee-item">
+                                    <p class="rs lbl">Pledged</p>
+                                    <span class="val">${{project.current}}</span>
+                                </div>
+                                <div class="sep"></div>
+                                <div class="fee-item">
+                                    <p class="rs lbl">Time Left</p>
+                                    <span class="val">{{project.end_date|timeuntil }}</span>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div><!--end: project-short item -->
+            {% endfor %}
+                </div>
+
+            </div><!--end: .search-result-page -->
+        </div><!--end: .content -->
+
+        <div class="clear"></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="project-detail">
+                <div class="project-tab-detail tabbable accordion">
+                    <ul class="nav nav-tabs clearfix">
+                      <li class="active"><a style="font-weight:bold" href="#">Create New Project</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div>
+                            <h3 class="rs alternate-tab accordion-label">Create</h3>
+                            <div class="tab-pane accordion-content active">
+                                <div class="form form-profile">
+                                    {% if form.errors %}
+                                    <h4>Please , check the errors !</h4>
+<div class="error" style="color:red">{{ form.errors }}</div>
+                                    {% endif %}
+                                    <form method="POST" enctype="multipart/form-data" action="/project/new/">
+                                        {% csrf_token %}
+                                        <div class="row-item clearfix">
+
+                                            <label class="lbl" for="txt_name1">Project Name:</label>
+                                            <div class="val">
+                                                <input class="txt" type="text" id="txt_name1" name = "title" value="">
+                                                <p class="rs description-input">Your name is displayed on your profile.</p>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        
+
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_bio">Project Details:</label>
+                                            <div class="val">
+                                                <textarea class="txt fill-width" name="details" id="txt_bio" cols="30" rows="10"></textarea>
+                                                <p class="rs description-input">We suggest a short bio. If it’s 300 characters or less it’ll look great on your project page.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_web">Category:</label>
+                                            <div class="val">
+                                                <select class="txt fill-width" name="category" for="txt_web">
+                                                    {% for key in form.category %}
+                                                    {{key }}
+                                                    {% endfor %}
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row-item clearfix">
+
+                                            <label class="lbl" for="txt_name1">Target Costs:</label>
+                                            <div class="val">
+                                                <input class="txt" type="text" id="txt_name1" name = "target" value="">
+                                                <p class="rs description-input">Enter The total amount to implement your project..</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_name1">Start Date:</label>
+                                            <div class="val">
+                                                <input class="txt" type="text" id="start_date" name = "start_date" value=""  >
+                                                <p class="rs description-input">Your kick off date.</p>
+                                            </div>
+                                        </div>
+                                      <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_name1">End Date:</label>
+                                            <div class="val">
+                                                <input class="txt" type="text" id="end_date" name = "end_date" value="">
+                                                <p class="rs description-input">The deadline of accepting donations.</p>
+                                            </div>
+                                        </div>
+
+                     <div class="row-item clearfix">
+
+                                            <label class="lbl" for="txt_tags">Tags:</label>
+                                            <div class="val">
+                                                <input class="txt" type="text" id="txt_tags" name = "tags" value="">
+                                                <p class="rs description-input">Enter Tags that would describe your project</p>
+                                            </div>
+                                        </div>
+
+                                        <p><label for="id_main_pic">Main Picture:</label> <input type="file" class="txt fill-width"  name="main_pic" accept="image/*" id="id_main_pic"></p>
+
+
+                                        <div class="row-item clearfix"></div>
+                                            <label class="lbl" for="id_project_img">Images:</label>
+                                            <div class="val">
+                                        <!-- {{ formset.management_form }}
+                                                {% for form in formset %}
+                                                    {{ form }}
+                                                {% endfor %} -->
+                                                {{ formset.as_table }}
+                                            </div>
+                                        </div>
+
+
+                                        <p class="wrap-btn-submit rs ta-r">
+                                            <button class="btn btn-red btn-submit-all">Go Baby Go :)</button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div><!--end: .tab-pane -->
+                            <br>
+                        </div>
+
+                        <div>
+
+                        </div>
+
+                        </div>
+
+                      </div>
+                </div><!--end: .project-tab-detail -->
+            </div>
+        </div><!--end: .content -->
+        <div class="sidebar grid_4">
+            <div class="box-gray project-author">
+                <h3 class="title-box">Project by</h3>
+                <div class="media">
+                    <a href="#" class="thumb-left">
+                            {% load static %}
+
+                        <img src="{{user.userprofileinfo.profile_pic.url}}" alt=""/>
+                    </a>
+                    <div class="media-body">
+                        <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b">User Name</a></h4>
+                        <p class="rs">Mansourah , Egypt</p>
+                        <p class="rs fc-gray">5 projects</p>
+                    </div>
+                </div>
+                <div class="author-action">
+                    <a class="btn btn-red" href="{% url 'user_profile' %}">Edit info</a>
+                    <a class="btn btn-white" href="#">Logout</a>
+                </div>
+            </div><!--end: .project-author -->
+        </div><!--end: .sidebar -->
+        <div class="clear"></div>
+    </div>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+ $( function() {
+    $( "#start_date" ).datepicker({
+    dateFormat: 'yy-mm-dd'
+});
+    $( "#end_date" ).datepicker({
+    dateFormat: 'yy-mm-dd'
+});
+  } );
+
+</script>
+{% endblock %}

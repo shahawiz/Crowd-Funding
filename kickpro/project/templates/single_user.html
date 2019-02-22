@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="layout-2cols">
+        <div class="content grid_12">
+            <div class="single-page">
+<div name="user_info" style="margin:0 auto;text-align: center;">
+                    <img style="width: auto;height: 195px;border-radius: 125px;" src="{{PublicUser.userprofileinfo.profile_pic.url}}">
+                <h2 class="rs single-title">{{PublicUser.userprofileinfo.FullName}}</h2>
+</div>
+
+
+            </div>
+        </div><!--end: .content -->
+        <div class="clear"></div>
+    </div>
+
+    <div class="additional-info-line">
+        <div class="container_12" >
+
+            <div class="grid_1 ta-r" style="text-align:center;">
+            <h2 style=" color: #ea513d;">Country</h2>
+              <p class="rs" ><img style="width: 68px;" alt="{{PublicUser.userprofileinfo.Country}}" src="/static/images/flag/{{PublicUser.userprofileinfo.Country|lower}}.png"></p>
+            </div>
+                        <div class="grid_3 ta-r" style="text-align:center;">
+            <h2 style=" color: #ea513d;">Projects</h2>
+            <h1>{{NumProjects}}</h1>
+            </div>
+            <div class="grid_4 ta-r" style="text-align:center;">
+            <h2 style=" color: #ea513d;">Last Active</h2>
+            <h2>{{PublicUser.last_login|timesince}}</h2>
+            </div>
+            <div class="grid_4 ta-r" style="text-align:center;">
+            <h2 style=" color: #ea513d;">Joined</h2>
+            <h2>{{PublicUser.date_joined}}</h2>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div><!--end: .additional-info-line -->
+
+{% endblock %}
