@@ -1,4 +1,4 @@
-   ![enter image description here](http://fintechnews.sg/wp-content/uploads/2016/08/fotolia_61267440_crowdfunding-500x330-1440x564_c.jpg) Crowdfunding is the practice of funding a project or venture by raising small
+   ![enter image description here](https://zakat.org/crowdfunding/wp-content/uploads/2017/08/Crowfunding-banner.jpg) Crowdfunding is the practice of funding a project or venture by raising small
     amounts of money from a large number of people, typically via the Internet.
     Crowdfunding is a form of crowdsourcing and alternative finance. In 2015,
     over US$34 billion was raised worldwide by crowdfunding. (From
@@ -7,7 +7,9 @@
 The aim of the project​ : Create a web platform for starting fundraise
 projects in Egypt.
 The web app includes the following features:
+
 **1 - ​ Authentication System​ :**
+
 - Registration:
 - First name
 - Last name
